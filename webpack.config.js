@@ -48,12 +48,8 @@ const devConfig = () => ({
       {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
-          'file-loader',
           {
             loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              outputPath: 'path of output image directory'
           },
         ],
       },
