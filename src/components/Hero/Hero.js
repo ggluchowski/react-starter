@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from '/Hero.scss';
+import styles from './Hero.scss';
+import img from '../../images/space.png';
 
 const Hero = () => (
-  <header>
-    <h2>Things to do</h2>
-    <img>
+  <header className={styles.component}>
+    <h2 className={styles.title}>Things to do</h2>
+    <img className={styles.image} src={img} />
   </header>
 );
 

@@ -1,0 +1,1 @@
+export const space = require('./space.png');

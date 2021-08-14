@@ -20,7 +20,7 @@ const baseConfig = () => ({
         },
       },
     ],
-  }, 
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -34,15 +34,27 @@ const devConfig = () => ({
       {
         test: /\.(s*)css$/,
         use: [
-          'style-loader', 
+          'style-loader',
           {
             loader: 'css-loader',
             query: {
-              modules: true, 
+              modules: true,
               localIdentName: '[name]_[local]_[hash:base64:5]',
             },
-          }, 
+          },
           'sass-loader',
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+              outputPath: 'path of output image directory'
+          },
         ],
       },
     ],
@@ -59,15 +71,15 @@ const prodConfig = () => ({
           {
             loader: 'css-loader',
             query: {
-              modules: true, 
+              modules: true,
               localIdentName: '[name]_[local]_[hash:base64:5]',
             },
-          }, 
+          },
           'sass-loader',
         ],
       },
     ],
-  }, 
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'styles_bundle_[name].css',
