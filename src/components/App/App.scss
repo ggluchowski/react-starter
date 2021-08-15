@@ -4,6 +4,11 @@
   padding: $base-size;
 }
 
+.component_new_list {
+  padding: $base-size;
+  border-top: solid 2px $color-light;
+}
+
 .title {
   padding: ($base-size * 3) 0;
   text-align: center;

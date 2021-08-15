@@ -14,6 +14,9 @@ class Column extends React.Component {
     title: PropTypes.string,
     icon: PropTypes.string,
   }
+  static defaultProps = {
+    icon: settings.defaultColumnIcon,
+  }
 
   addCard(title) {
     this.setState(state => (
@@ -44,7 +47,7 @@ class Column extends React.Component {
           ))}
         </div>
         <div >
-            <Creator text={settings.columnCreatorText} action={title => this.addCard(title)} />
+            <Creator text={settings.cardCreatorText} action={title => this.addCard(title)} />
         </div>
       </section>
     )
