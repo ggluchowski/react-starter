@@ -1,4 +1,4 @@
-@import '../../styles/settings.scss';
+@import "../../styles/settings.scss";
 
 .component {
   position: relative;
@@ -7,4 +7,23 @@
   padding: $base-size;
   margin: 0 0 $base-size 0;
   border-radius: $radius;
+}
+
+.card {
+  position: relative;
+  background: $color-light;
+  padding: $base-size $base-size $base-size 0;
+  margin: 0 0 $base-size 20px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    background-color: $color-warning;
+    height: 10px;
+    width: 10px;
+    border-radius: 50% 50%;
+    display: block;
+    top: 14px;
+    margin-left: -20px;
+  }
 }
