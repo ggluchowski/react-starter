@@ -1,16 +1,18 @@
 import React from 'react';
 import styles from './App.scss';
 import List from '../List/List';
-import {pageContents, listData, settings} from '../../data/dataStore';
+import { pageContents, listData, settings } from '../../data/dataStore';
 import Creator from '../Creator/Creator';
-
 import PropTypes from 'prop-types';
+
+// "react/prop-types": "off" - do pliku eslintrc do rules, aby wylaczyc missing props validation
 
 class App extends React.Component {
   state = {
     lists: this.props.lists || [],
   }
   static propTypes = {
+    lists: PropTypes.array,
     title: PropTypes.string,
     image: PropTypes.string,
   }
@@ -24,11 +26,11 @@ class App extends React.Component {
         lists: [
           ...state.lists,
           {
-            key: state.lists.length ? state.lists[state.lists.length-1].key+1 : 0,
+            key: state.lists.length ? state.lists[state.lists.length - 1].key + 1 : 0,
             title,
-            image: './public/images/todo.jpg'
-          }
-        ]
+            image: './public/images/todo.jpg',
+          },
+        ],
       }
     ));
   }
@@ -41,7 +43,7 @@ class App extends React.Component {
         <List {...listData} />
 
         <div className={styles.component_new_list}>
-        {this.state.lists.map(({ key, ...listProps }) => (
+          {this.state.lists.map(({ key, ...listProps }) => (
             <List key={key} {...listProps} />
           ))}
         </div>
@@ -50,7 +52,8 @@ class App extends React.Component {
         </div>
 
       </main>
-    )
+
+    );
   }
 }
 
