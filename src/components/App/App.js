@@ -1,55 +1,42 @@
 import React from 'react';
 import styles from './App.scss';
-import List from '../List/List';
-import { pageContents, listData, settings } from '../../data/dataStore';
-import Creator from '../Creator/Creator';
+import List from '../List/ListContainer';
 import PropTypes from 'prop-types';
+// import Creator from '../Creator/Creator';
 
 // "react/prop-types": "off" - do pliku eslintrc do rules, aby wylaczyc missing props validation
 
 class App extends React.Component {
-  state = {
-    lists: this.props.lists || [],
-  }
+
   static propTypes = {
     lists: PropTypes.array,
-    title: PropTypes.string,
-    image: PropTypes.string,
+    title: PropTypes.node,
+    subtitle: PropTypes.node,
+    // image: PropTypes.string,
   }
-  static deflautProps = {
-    image: settings.deflautImage,
-  }
-
-  addList(title) {
-    this.setState(state => (
-      {
-        lists: [
-          ...state.lists,
-          {
-            key: state.lists.length ? state.lists[state.lists.length - 1].key + 1 : 0,
-            title,
-            image: './public/images/todo.jpg',
-          },
-        ],
-      }
-    ));
-  }
+  // static deflautProps = {
+  //   image: settings.deflautImage,
+  // }
 
   render() {
+    const {title, subtitle, lists} = this.props;
     return (
       <main className={styles.component}>
-        <h1 className={styles.title}>{pageContents.title}</h1>
-        <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
-        <List {...listData} />
+        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.subtitle}>{subtitle}</h2>
+        {lists.map(listData => (
+          <List key={listData.id} {...listData} />
+        ))}
 
-        <div className={styles.component_new_list}>
+
+        {/* <div className={styles.component_new_list}>
           {this.state.lists.map(({ key, ...listProps }) => (
             <List key={key} {...listProps} />
           ))}
         </div>
         <div className={styles.creator}>
           <Creator text={settings.listCreatorText} action={title => this.addList(title)} />
-        </div>
+        </div> */}
 
       </main>
 
