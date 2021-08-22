@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './App.scss';
 import List from '../List/ListContainer';
 import PropTypes from 'prop-types';
+import Search from '../Search/SearchContainer';
 // import Creator from '../Creator/Creator';
 
 // "react/prop-types": "off" - do pliku eslintrc do rules, aby wylaczyc missing props validation
@@ -24,6 +25,7 @@ class App extends React.Component {
       <main className={styles.component}>
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>
+        <Search />
         {lists.map(listData => (
           <List key={listData.id} {...listData} />
         ))}
