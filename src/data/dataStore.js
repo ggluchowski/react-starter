@@ -82,6 +82,18 @@ const lists = [
     description: 'Interesting things I want to check out!',
     image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   },
+  {
+    id: 'list-2',
+    title: 'Things not to do !',
+    description: 'Things witch I can not do now.',
+    image: 'https://i.postimg.cc/52xrdfyp/pexels-dominika-roseclay-1856422.jpg',
+  },
+  {
+    id: 'list-3',
+    title: 'Shop list',
+    description: 'Everything what I can eat',
+    image: 'https://i.postimg.cc/9XP3v81m/pexels-jess-bailey-designs-983826.jpg',
+  },
 ];
 
 const columns = [

@@ -5,6 +5,7 @@ import styles from './Header.scss';
 import Icon from '../Icon/Icon';
 import { settings } from '../../data/dataStore';
 import PropTypes from 'prop-types';
+import Search from '../Search/Search';
 
 class Header extends React.Component {
 
@@ -24,14 +25,15 @@ class Header extends React.Component {
             <Link className={styles.logo} to='/'>
               <Icon name={headIcon} />
             </Link>
-            <nav>
+            <nav className={styles.list}>
               {headersContent.map(headData => (
                 <NavLink key={headData.id} exact to={headData.path} activeClassName='active'>
                   <Icon name={headData.icon} />
                   &nbsp;&nbsp;&nbsp;{headData.title}
                 </NavLink>
-
               ))}
+
+              <Search />
             </nav>
           </div>
         </Container>
